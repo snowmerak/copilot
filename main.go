@@ -33,7 +33,7 @@ func main() {
 	writer := (*bufio.Writer)(nil)
 
 	switch filePath {
-	case "[[stdout]]":
+	case "[[stdout]]", "[stdout]", "stdout":
 		writer = bufio.NewWriter(os.Stdout)
 	default:
 		if err := os.MkdirAll(filepath.Dir(filePath), os.ModePerm); err != nil {
