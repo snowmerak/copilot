@@ -2,6 +2,7 @@ package template
 
 var list = []string{
 	"go enum",
+	"cpp enum",
 }
 
 func List() []string {
@@ -9,7 +10,8 @@ func List() []string {
 }
 
 var set = map[string]string{
-	"go enum": GoEnum,
+	"go enum":  GoEnum,
+	"cpp enum": CppEnum,
 }
 
 func Get(name string) string {
