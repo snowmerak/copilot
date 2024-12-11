@@ -30,7 +30,7 @@ func main() {
 		panic(err)
 	}
 
-	if err := os.MkdirAll(filepath.Base(filePath), os.ModePerm); err != nil {
+	if err := os.MkdirAll(filepath.Dir(filePath), os.ModePerm); err != nil {
 		panic(err)
 	}
 
