@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	Model = "qwen2.5-coder:7b"
+	Model = "qwen2.5-coder:14b"
 )
 
 const (
