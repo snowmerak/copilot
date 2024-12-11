@@ -42,4 +42,15 @@ func FromIndex(i int) {{.EnumName}} {
 		return 0
 	}
 }
+
+func ToIndex(e {{.EnumName}}) int {
+	switch e {
+{{- range .Values }}
+	case {{.Name}}:
+		return {{.Value}}
+{{- end }}
+	default:
+		return 0
+	}
+}
 `
