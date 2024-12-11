@@ -3,6 +3,8 @@ package template
 var list = []string{
 	"go enum",
 	"cpp enum",
+	"dockerfile",
+	"shell script",
 }
 
 func List() []string {
@@ -10,8 +12,10 @@ func List() []string {
 }
 
 var set = map[string]string{
-	"go enum":  GoEnum,
-	"cpp enum": CppEnum,
+	"go enum":      GoEnum,
+	"cpp enum":     CppEnum,
+	"dockerfile":   Dockerfile,
+	"shell script": ShellScript,
 }
 
 func Get(name string) string {
