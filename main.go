@@ -25,22 +25,29 @@ func main() {
 
 	filePath := ""
 	if err := survey.AskOne(&survey.Input{
-		Message: "Input Output File path",
+		Message: "Input Output File path or [[stdout]]",
 	}, &filePath); err != nil {
 		panic(err)
 	}
 
-	if err := os.MkdirAll(filepath.Dir(filePath), os.ModePerm); err != nil {
-		panic(err)
-	}
+	writer := (*bufio.Writer)(nil)
 
-	file, err := os.Create(filePath)
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
+	switch filePath {
+	case "[[stdout]]":
+		writer = bufio.NewWriter(os.Stdout)
+	default:
+		if err := os.MkdirAll(filepath.Dir(filePath), os.ModePerm); err != nil {
+			panic(err)
+		}
 
-	writer := bufio.NewWriter(file)
+		file, err := os.Create(filePath)
+		if err != nil {
+			panic(err)
+		}
+		defer file.Close()
+
+		writer = bufio.NewWriter(file)
+	}
 
 	temple := ""
 	if err := survey.AskOne(&survey.Select{
@@ -72,10 +79,6 @@ func main() {
 	}
 
 	if err := writer.Flush(); err != nil {
-		panic(err)
-	}
-
-	if err := file.Close(); err != nil {
 		panic(err)
 	}
 
