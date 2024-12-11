@@ -6,6 +6,7 @@ var list = []string{
 	"cpp enum",
 	"dockerfile",
 	"shell script",
+	"powershell",
 }
 
 func List() []string {
@@ -18,6 +19,7 @@ var set = map[string]string{
 	"cpp enum":     CppEnum,
 	"dockerfile":   Dockerfile,
 	"shell script": ShellScript,
+	"powershell":   PowerShell,
 }
 
 func Get(name string) string {
