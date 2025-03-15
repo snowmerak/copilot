@@ -19,7 +19,8 @@ func main() {
 	defer cancel()
 
 	cli, err := ollama.New(ollama.Config{
-		Model: ollama.ModelGemma3,
+		Endpoint: "http://localhost:11434",
+		Model:    ollama.ModelGemma3,
 	})
 	if err != nil {
 		panic(err)
