@@ -1,4 +1,4 @@
-package qwen
+package ollama
 
 import (
 	"context"

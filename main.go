@@ -9,8 +9,8 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 
+	"github.com/snowmerak/copilot/ollama"
 	"github.com/snowmerak/copilot/prompt"
-	"github.com/snowmerak/copilot/qwen"
 	"github.com/snowmerak/copilot/template"
 )
 
@@ -18,7 +18,9 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	cli, err := qwen.New(qwen.Config{})
+	cli, err := ollama.New(ollama.Config{
+		Model: ollama.ModelGemma3,
+	})
 	if err != nil {
 		panic(err)
 	}
